@@ -1,3 +1,4 @@
+/* Author: Ben Lau (https://github.com/benlau) */
 import QtQuick 2.0
 import "android.js" as Android
 

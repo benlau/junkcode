@@ -1,3 +1,5 @@
+/* Author: Ben Lau (https://github.com/benlau) */
+
 #include <QtGui/QGuiApplication>
 #include <QtCore>
 #include <QQuickItem>
