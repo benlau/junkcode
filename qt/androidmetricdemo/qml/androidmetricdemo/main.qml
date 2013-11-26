@@ -7,9 +7,9 @@ Rectangle {
     height: 400
 
     Text {
-        text: "The density is " + Android.density()
+        text: "Forumla: 1 dp = " + Android.dp + " pixel."
         anchors.centerIn: parent
-        font.pixelSize : Android.pixel(18);
+        font.pixelSize : 18 * Android.dp
     }
 
     MouseArea {
@@ -27,7 +27,7 @@ Rectangle {
 
     Rectangle {
         id: actionBar
-        height: Android.pixel(48)
+        height: 48 * Android.dp
         color: "#3498db"
         anchors.right: parent.right
         anchors.rightMargin: 0
@@ -46,7 +46,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            font.pixelSize : Android.pixel(22);
+            font.pixelSize : 22 * Android.dp;
         }
     }
 
@@ -54,7 +54,7 @@ Rectangle {
         id: navBar
         x: 0
         y: 360
-        height: Android.pixel(48)
+        height: 48 * Android.dp
         color: "#3498db"
         anchors.right: parent.right
         anchors.rightMargin: 0
