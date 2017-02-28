@@ -27,10 +27,11 @@ checkout:
 ## Customize dependencies
 dependencies:
   pre:
-    - pip install conan
-    - conan install --build OpenCV
+    - ls ~/.conan
 
   override:
+    - pip install conan
+    - conan install --build OpenCV
     - ls ~/.conan
  
   # we automatically cache and restore many dependencies between
