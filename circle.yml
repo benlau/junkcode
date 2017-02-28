@@ -28,11 +28,11 @@ checkout:
 dependencies:
   pre:
     - ls ~/.conan
+    - pip install conan
+    - conan install --build missing
 
   override:
-    - pip install conan
-    - conan install --build OpenCV
-    - ls ~/.conan
+   - ls ~/.conan
  
   # we automatically cache and restore many dependencies between
   # builds. If you need to, you can add custom paths to cache:
