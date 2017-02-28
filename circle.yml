@@ -43,9 +43,4 @@ test:
   override:
     - echo "Pass!"
   post:
-    - bundle exec rake jasmine:ci: # add an extra test type
-        environment:
-          RAILS_ENV: test
-          RACK_ENV: test
-
-
+    - echo "Pass!" 
