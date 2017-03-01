@@ -24,4 +24,5 @@ OTHER_FILES += \
     qml/androidmetricdemo/android.js \
     qml/androidmetricdemo/main.qml
 
+message("include conan")
 include($$PWD/../../conanbuildinfo.pri)

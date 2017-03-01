@@ -43,6 +43,8 @@ dependencies:
 test:
   override:
     - ls
+    - cat conanbuildinfo.pri
+    - cat conaninfo.txt 
     - source qtci/path.env
     - cd qt/androidmetricdemo; qmake ; make
   post:
