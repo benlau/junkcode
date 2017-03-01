@@ -3,11 +3,6 @@ machine:
   timezone:
     America/Los_Angeles # Set the timezone
 
-  # Version of ruby to use
-  ruby:
-    version:
-      1.8.7-p358-falcon-perf
-
   # Override /etc/hosts
   hosts:
     circlehost: 127.0.0.1
@@ -16,7 +11,6 @@ machine:
   # Add some environment variables
   environment:
     CIRCLE_ENV: test
-    DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
 
 ## Customize checkout
 checkout:
@@ -38,7 +32,7 @@ dependencies:
     - git clone https://github.com/benlau/qtci.git
 
   override:
-   - ls ~/.conan
+   - ls ~/.conan 
  
   # we automatically cache and restore many dependencies between
   # builds. If you need to, you can add custom paths to cache:
@@ -49,7 +43,7 @@ dependencies:
 test:
   override:
     - source qtci/path.env
-    - qt/androidmetricdemo
+    - cd qt/androidmetricdemo
     - qmake
     - make
     - ls

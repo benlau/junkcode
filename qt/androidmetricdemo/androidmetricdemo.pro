@@ -23,3 +23,7 @@ qtcAddDeployment()
 OTHER_FILES += \
     qml/androidmetricdemo/android.js \
     qml/androidmetricdemo/main.qml
+
+exists($$PWD/../../conanfile.pri) {
+    include($$PWD/../../conanfile.pri)
+}
