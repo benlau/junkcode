@@ -42,11 +42,8 @@ dependencies:
 ## Customize test commands
 test:
   override:
-    - source qtci/path.env
-    - cd qt/androidmetricdemo
-    - pwd
-    - qmake -makefile androidmetricdemo.pro
-    - make
     - ls
+    - source qtci/path.env
+    - cd qt/androidmetricdemo; qmake ; make
   post:
     - echo "Pass!" 
