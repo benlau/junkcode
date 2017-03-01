@@ -28,8 +28,14 @@ checkout:
 dependencies:
   pre:
     - ls ~/.conan
+    - sudo add-apt-repository --yes ppa:beineri/opt-qt551
+    - sudo add-apt-repository --yes "deb http://download.opensuse.org/repositories/home:/benlau/xUbuntu_15.10 ./"
+    - sudo apt-get update -qq
+    - apt-cache search qt5
+    - sudo apt-get install --force-yes -qq qt55quickcontrols  qt55declarative qt55script qt55graphicaleffects qpm
     - pip install conan
     - conan install --build missing
+    - git clone https://github.com/benlau/qtci.git
 
   override:
    - ls ~/.conan
@@ -42,6 +48,10 @@ dependencies:
 ## Customize test commands
 test:
   override:
-    - echo "Pass!"
+    - source qtci/path.env
+    - qt/androidmetricdemo
+    - qmake
+    - make
+    - ls
   post:
     - echo "Pass!" 
