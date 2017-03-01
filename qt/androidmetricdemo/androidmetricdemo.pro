@@ -24,6 +24,6 @@ OTHER_FILES += \
     qml/androidmetricdemo/android.js \
     qml/androidmetricdemo/main.qml
 
-exists($$PWD/../../conanfile.pri) {
-    include($$PWD/../../conanfile.pri)
+exists($$PWD/../../conanbuildinfo.pri) {
+    include($$PWD/../../conanbuildinfo.pri)
 }
