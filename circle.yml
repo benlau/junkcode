@@ -44,7 +44,7 @@ test:
   override:
     - source qtci/path.env
     - cd qt/androidmetricdemo
-    - qmake
+    - qmake -makefile
     - make
     - ls
   post:
