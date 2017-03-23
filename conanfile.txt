@@ -1,5 +1,4 @@
 [requires]
-Poco/1.7.3@lasote/stable
 OpenCV/3.2.0@fmiguelgarcia/stable
 
 [generators]
