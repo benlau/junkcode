@@ -2,15 +2,20 @@
     "ignorePattern": [".*swp", "vendor","user$", ".DS_Store", "qmlc$","build-"],
     "pathReplace": [
         {
-            "find": "",
-            "replace": ""
+            "find": "MYPROJECT",
+            "replace": "%{ProjectName}"
         }
     ],
     "fileReplace": [
         {
-            "pattern": "",
-            "find": "",
-            "replace": ""
+            "pattern": ".*",
+            "find": "MYPROJECT",
+            "replace": "%{ProjectName}"
+        },
+        {
+            "pattern": ".*",
+            "find": "\\\\",
+            "replace": "\\\\"
         }
     ]
 }
