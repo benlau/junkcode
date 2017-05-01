@@ -1,0 +1,16 @@
+{
+    "ignorePattern": [".*swp$", ".DS_Store", "vendor"],
+    "pathReplace": [
+        {
+            "find": "MYPROJECT",
+            "replace": "%{ProjectName}"
+        }
+    ],
+    "fileReplace": [
+        {
+            "pattern": "",
+            "find": "",
+            "replace": ""
+        }
+    ]
+}
