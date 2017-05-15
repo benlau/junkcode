@@ -1,16 +1,41 @@
 {
-    "ignorePattern": [".*swp$", ".DS_Store", "vendor"],
+    "ignorePattern": [".*swp", "vendor","user$", ".DS_Store", "qmlc$","build-"],
     "pathReplace": [
         {
             "find": "MYPROJECT",
             "replace": "%{ProjectName}"
+        },
+        {
+            "pattern": ".*",
+            "find": "MYTARGET",
+            "replace": "%{ApplicationProjectName}"
+        },
+        {
+            "pattern": ".*",
+            "find": "MYPACKAGE",
+            "replace": "%{Package}"
         }
     ],
     "fileReplace": [
         {
-            "pattern": "",
-            "find": "",
-            "replace": ""
+            "pattern": ".*",
+            "find": "MYPROJECT",
+            "replace": "%{ProjectName}"
+        },
+        {
+            "pattern": ".*",
+            "find": "MYTARGET",
+            "replace": "%{ApplicationProjectName}"
+        },
+        {
+            "pattern": ".*",
+            "find": "MYPACKAGE",
+            "replace": "%{Package}"
+        },
+        {
+            "pattern": ".*",
+            "find": "\\\\",
+            "replace": "\\\\"
         }
     ]
 }
