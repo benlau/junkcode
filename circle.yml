@@ -21,7 +21,6 @@ checkout:
 ## Customize dependencies
 dependencies:
   pre:
-    - ls ~/.conan
     - sudo add-apt-repository --yes ppa:beineri/opt-qt551
     - sudo add-apt-repository --yes "deb http://download.opensuse.org/repositories/home:/benlau/xUbuntu_15.10 ./"
     - sudo apt-get update -qq
@@ -31,9 +30,7 @@ dependencies:
     - conan install --build missing
     - git clone https://github.com/benlau/qtci.git
 
-  override:
-   - ls ~/.conan 
- 
+
   # we automatically cache and restore many dependencies between
   # builds. If you need to, you can add custom paths to cache:
   cache_directories:
