@@ -8,6 +8,7 @@ public:
     explicit Tests(QObject *parent = 0);
 
 private slots:
-    void testCase();
+    void test_qml_loading();
+    void test_qml_loading_data();
 };
 
