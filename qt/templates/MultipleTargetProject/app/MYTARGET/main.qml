@@ -1,6 +1,5 @@
 import QtQuick 2.3
 import QtQuick.Window 2.2
-import QtMultimedia 5.5
 import QtQuick.Controls 1.4
 import QuickFlux 1.1
 import MYPACKAGE.constants 1.0
