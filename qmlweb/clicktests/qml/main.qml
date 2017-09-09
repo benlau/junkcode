@@ -8,9 +8,17 @@ Item {
         anchors.fill: parent
         onClicked: {
             console.log("clicked");
-            console.log(mask.width, mask.height);
-            console.log(mask.opacity);
         }
+        
+        onPressed: {
+            console.log("pressed");
+        }
+        
+        onReleased: {
+            console.log("released");
+        }
+        
+        onPressedChanged: console.log("changed");
     }
 
     Rectangle {
