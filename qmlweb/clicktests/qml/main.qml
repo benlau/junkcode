@@ -8,13 +8,16 @@ Item {
         anchors.fill: parent
         onClicked: {
             console.log("clicked");
+            console.log(mask.width, mask.height);
+            console.log(mask.opacity);
         }
     }
 
     Rectangle {
+        id: mask
         anchors.fill: parent
         color: "black"
-        opacity: mouseArea.pressed ? 0.3 : 0
+        opacity: mouseArea.pressed ? 0.4 : 0.1
     }
 
     Text {
