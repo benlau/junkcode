@@ -6,6 +6,9 @@ Item {
     MouseArea {
         id: mouseArea
         anchors.fill: parent
+        onClicked: {
+            console.log("clicked");
+        }
     }
 
     Rectangle {
@@ -19,4 +22,7 @@ Item {
         text:  "Click me"
     }
 
+    Component.onCompleted: {
+        console.log(component.width, component.height);
+    }
 }
