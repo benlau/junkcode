@@ -17,13 +17,26 @@ mac {
     APP=$${OUT_PWD}/$${TARGET}.app
     DMG_FOLDER=$${OUT_PWD}/dmg
 
+    DISTRIBUTION_CN=""
+    INSTALLER_CN=""
+
     dmg.target = dmg
-    dmg.commands = macdeployqt $${APP} -qmldir=$${PWD}; \
-                   mkdir -p $${DMG_FOLDER}; cp -a $${APP} $${DMG_FOLDER}; \
-                   cd $${OUT_PWD}; \
-                   hdiutil create -srcfolder dmg -volname uforobot -fs HFS+ -fsargs \"-c c=64,a=16,e=16\" -format UDZO -imagekey zlib-level=9 $${TARGET}.dmg
-    dmg.depends = $${APP}
+    dmg.commands = cp $${PWD}/dmg.json $${OUT_PWD}; appdmg $${OUT_PWD}/dmg.json MYTARGET.dmg
+    dmg.depends = $${APP} sign
 
-    QMAKE_EXTRA_TARGETS += dmg
+    sign.target = sign
+    sign.path = $${APP}/Contents/_CodeSignature/CodeResources
+    sign.commands = dsymutil $${APP}/Contents/MacOS/$${TARGET} -o  $${TARGET}.dSYM; \
+                   macdeployqt $${APP} -verbose=1 -qmldir=$${PWD}/MYTARGET -appstore-compliant; \
+                   cp $${ROOTDIR}/assets/plugins/libqcocoa.dylib $${APP}/Contents/PlugIns/platforms/ ; \
+                   find $${APP} -name "\"*.dSYM\"" -exec rm -rf {} \; ; \
+                   codesign --deep -s "\"$${DISTRIBUTION_CN}\"" -f --entitlements $${PWD}/entitlement.plist $${APP};
+    sign.depends = $${APP}
+
+    pkg.target = pkg
+    pkg.path = $${TARGET}.pkg
+    pkg.commands = productbuild --component $${APP} /Applications --sign "\"$${INSTALLER_CN}\"" $${TARGET}.pkg
+    pkg.depends = $${APP}
+
+    QMAKE_EXTRA_TARGETS += dmg sign pkg
 }
-
