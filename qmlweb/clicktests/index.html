@@ -3,11 +3,26 @@
   <head>
   <meta name="viewport" content="width=device-width">
 
-
+    <style>
+      #embed {
+        width: 100%;
+        height: 1200px;
+        border: 10px;
+      }
+    </style>
     <title>QML Fullpage Auto-load Example</title>
     <script src="lib/qmlweb.min.js"></script>
     <script src="lib/qmlweb.parser.min.js"></script>
   </head>
-  <body style="margin: 0" data-qml="qml/main.qml">
+  <body>
+      <div id="embed"></div>
+            <script>
+        var div = document.getElementById('embed');
+        var engine = new QmlWeb.QMLEngine(div);
+        engine.loadFile('qml/main.qml'); // see also engine.loadQML
+        engine.start();
+        console.log(engine.rootObject);
+      </script>
+
   </body>
 </html>

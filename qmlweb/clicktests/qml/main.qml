@@ -2,6 +2,13 @@ import QtQuick 2.0
 
 Item {
     id: component
+    
+    Rectangle {
+    id: bg
+        width: parent.width
+        height: 400
+        color: "red"
+    }
 
     MouseArea {
         id: mouseArea
