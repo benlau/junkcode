@@ -8,17 +8,20 @@ function run(input, output) {
     var ruleFile = input + "/rule.json";
 
     if (!shell.test("-f", ruleFile ) ){
-        console.log("Rule file not found: " + ruleFile);
-        console.log("Create a default rule file");
-        var content = shell.ShellString(JSON.stringify(rule,null,4));
-        content.toEnd(ruleFile);
+        console.log("rule.json not found. Please run `qtcwizard init` to create default rule.json");
+        return -1;
     }
 
     rule = JSON.parse(shell.cat(ruleFile));
+    
+    if (!shell.test("-f", input + "/wizard.json")) {
+        console.log("wizard.json not found. Please run `qtcwizard init` to create default rule.json");
+        return -1;        
+    }
 
     var files = shell.find(input).filter(function(file) {
         var name = path.basename(file);
-        return !shell.test("-d", file) && name !== "rule.json";
+        return !shell.test("-d", file) && name.toLocaleLowerCase !== "rule.json" && name.toLocaleLowerCase !== "wizard.jso";
     });
 
     var generators = [];
@@ -35,6 +38,7 @@ function run(input, output) {
             }
             return acc;
         }, { include: true} ).include;
+        
     }).map(function(file) {
 
         var source = file.replace(basePath, "");

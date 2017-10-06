@@ -1,8 +1,9 @@
 module.exports = {
-    ignorePattern: [],
+    /// The files to be ignored
+    ignorePattern: ["\.swp$"],
     pathReplace: [ 
         {
-            find: "", // Pattern of match
+            find: "", 
             replace: ""
         }
     ],

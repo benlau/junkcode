@@ -1,0 +1,77 @@
+{
+    "version": 1,
+    "kind": "project",
+    "id": "MT.......",
+    "category": "F.Application",
+    "trDescription": "",
+    "trDisplayName": "Default Project",
+    "trDisplayCategory": "Application",
+    "icon": "",
+    "enabled": "",
+    "options": [
+        {
+            "key": "QtQuickVersion",
+            "value": "%{JS: %{QtVersion}.qtQuickVersion}"
+        }
+    ],
+    "pages": [
+        {
+            "trDisplayName": "Project Location",
+            "trShortTitle": "Location",
+            "typeId": "Project"
+        },
+        {
+            "trDisplayName": "Project Management",
+            "trShortTitle": "Summary",
+            "typeId": "Summary"
+        }
+    ],
+    "generators": [
+        {
+            "typeId": "File",
+            "data": [
+                {
+                    "source": ".gitignore",
+                    "target": ".gitignore"
+                },
+                {
+                    "source": "main.cpp",
+                    "target": "main.cpp"
+                },
+                {
+                    "source": "main.qml",
+                    "target": "main.qml"
+                },
+                {
+                    "source": "Page1.qml",
+                    "target": "Page1.qml"
+                },
+                {
+                    "source": "Page1Form.ui.qml",
+                    "target": "Page1Form.ui.qml"
+                },
+                {
+                    "source": "project1.pro",
+                    "target": "project1.pro",
+                    "openAsProject": true
+                },
+                {
+                    "source": "qml.qrc",
+                    "target": "qml.qrc"
+                },
+                {
+                    "source": "qtquickcontrols2.conf",
+                    "target": "qtquickcontrols2.conf"
+                },
+                {
+                    "source": "rule.json",
+                    "target": "rule.json"
+                },
+                {
+                    "source": "wizard.json",
+                    "target": "wizard.json"
+                }
+            ]
+        }
+    ]
+}
