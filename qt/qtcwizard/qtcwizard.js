@@ -2,6 +2,7 @@
 var program = require('commander');
 var init = require("./init.js");
 var shell = require('shelljs');
+var generate = require("./generator.js");
 
 program
     .version('0.1.0')
@@ -18,7 +19,7 @@ program
     .command("generate <output>")
     .description("generate Qt Creator Wizard Project folder")
     .action(function(cmd, options) {
-        console.log("generate", cmd);
+        generate(shell.pwd().toString(), cmd);
     });
 
 

@@ -2,24 +2,7 @@ var fs = require('fs');
 var shell = require('shelljs');
 const path = require('path');
 var defaultWizardJson = require("./default-wizard.js");
-
-// Default rule
-var defaultRule = {
-    ignorePattern: [],
-    pathReplace: [
-        {
-            find: "",
-            replace: ""
-        }
-    ],
-    fileReplace: [
-        {
-            "pattern": ".*",
-            "find": "\\\\",
-            "replace": "\\\\"
-        }
-    ]
-}
+var defaultRule = require("./default-rule");
 
 function run(output) {
     var ruleFilePath = path.resolve(output, "rule.json");
