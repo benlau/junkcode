@@ -38,4 +38,4 @@ function run(output) {
     
 }
 
-run(shell.pwd().toString());
+module.exports = run;

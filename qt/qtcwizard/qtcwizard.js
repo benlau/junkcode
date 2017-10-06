@@ -1,4 +1,7 @@
+#!/usr/bin/env node
 var program = require('commander');
+var init = require("./init.js");
+var shell = require('shelljs');
 
 program
     .version('0.1.0')
@@ -8,7 +11,7 @@ program
     .command('init')
     .description("create default rule.json and wizard.json")
     .action(function(cmd,options) {
-        console.log("init");
+        init(shell.pwd().toString());
     });
 
 program
