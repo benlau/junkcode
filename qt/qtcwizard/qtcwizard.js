@@ -2,10 +2,10 @@
 var program = require('commander');
 var init = require("./init.js");
 var shell = require('shelljs');
-var generate = require("./generator.js");
+var generate = require("./generate.js");
 
 program
-    .version('0.1.0')
+    .version('0.0.1')
     .option('-C, --chdir <path>', 'change the working directory')
 
 program

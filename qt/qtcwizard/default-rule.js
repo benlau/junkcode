@@ -1,16 +1,16 @@
 module.exports = {
     ignorePattern: [],
-    pathReplace: [
+    pathReplace: [ 
         {
-            find: "",
+            find: "", // Pattern of match
             replace: ""
         }
     ],
     fileReplace: [
         {
-            "pattern": ".*",
-            "find": "\\\\",
-            "replace": "\\\\"
+            "pattern": ".*", // Apply the changes to file matched
+            "find": "\\\\", // Pattern of text
+            "replace": "\\\\" // Replace the found text
         }
     ]
 }
