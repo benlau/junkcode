@@ -37,3 +37,6 @@ build-*
 vendor
 *.qmlc
 commands.md
+
+node_modules
+qt/templates/*.sh
