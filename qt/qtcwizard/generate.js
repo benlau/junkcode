@@ -1,21 +1,20 @@
 var fs = require('fs');
 var shell = require('shelljs');
 const path = require('path');
-var rule = require("./default-generator.js");
 
 function run(input, output) {
 
-    var ruleFile = input + "/generator.json";
+    var generatorFile = input + "/generator.json";
 
-    if (!shell.test("-f", ruleFile ) ){
+    if (!shell.test("-f", generatorFile ) ){
         console.log("generator.json not found. Please run `qtcwizard init` to create default generator.json");
         return -1;
     }
 
-    rule = JSON.parse(shell.cat(ruleFile));
+    var generator = JSON.parse(shell.cat(generatorFile));
     
     var defaultIgnorePattern = ["generator.json"];
-    rule.ignoreFilePattern = rule.ignoreFilePattern ? rule.ignoreFilePattern.concat(defaultIgnorePattern) : defaultIgnorePattern
+    generator.ignoreFilePattern = generator.ignoreFilePattern ? generator.ignoreFilePattern.concat(defaultIgnorePattern) : defaultIgnorePattern
     
     if (!shell.test("-f", input + "/wizard.json")) {
         console.log("wizard.json not found. Please run `qtcwizard init` to create default generator.json");
@@ -34,7 +33,7 @@ function run(input, output) {
 
         var source = file.replace(basePath, "");
 
-        return rule.ignoreFilePattern.reduce(function(acc, value) {
+        return generator.ignoreFilePattern.reduce(function(acc, value) {
             var res = source.match(value);
             if (res) {
                 acc.include = false;
@@ -43,33 +42,46 @@ function run(input, output) {
         }, { include: true} ).include;
         
     }).map(function(file) {
-
-        var source = file.replace(basePath, "");
-
-        var target = rule.filePath.reduce(function(acc, value) {
-            return acc.replace(new RegExp(value.find, "g"), value.replace);
-        }, source);
-
-        var content = shell.cat(file);
-
-        var newContent = rule.fileContent.reduce(function(acc,value) {
-            return acc.replace(new RegExp(value.find, "g"), value.replace);
-        }, content);
-
-        var outputFile = path.resolve(output, source);
+        var item = {
+            source: file.replace(basePath, ""),
+            content: shell.cat(file)
+        };
+        
+        item.target = item.source;
+        
+        item = generator.rules.reduce(function(item, rule) {
+            rule.path = rule.path ? rule.path : []
+            rule.content = rule.content ? rule.content : []
+            
+            if (!item.source.match(rule.pattern)) {
+                return item;
+            }
+            
+            item.target = rule.path.reduce(function(acc, value) {
+                return acc.replace(new RegExp(value.find, "g"), value.replace);
+            }, item.target);
+            
+            item.content = rule.content.reduce(function(acc, value) {
+                return acc.replace(new RegExp(value.find, "g"), value.replace);
+            }, item.content);
+            
+            return item;            
+        }, item);
+        
+        var outputFile = path.resolve(output, item.source);
 
         var dirname = path.dirname(outputFile);
 
         shell.mkdir("-p", dirname);
 
-        shell.ShellString(newContent).to(outputFile);
+        shell.ShellString(item.content).to(outputFile);
 
         var res = {
-            source: source,
-            target: target
+            source: item.source,
+            target: item.target
         }
 
-        if (source.match(/pro$/)) {
+        if (item.source.match(/pro$/)) {
             res.openAsProject = true;
         }
 

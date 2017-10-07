@@ -1,16 +1,23 @@
 {
     "ignoreFilePattern": ["\\.swp$", "\\.DS_Store$"],
-    "filePath": [
+    "rules": [
         {
-            "find": "project1.pro",
-            "replace": "%{ProFileName}"
-        } 
-    ],
-    "fileContent": [
-	   {
+            "pattern": "project1.pro",
+            "path": [
+                {
+                    "find": "project1.pro",
+                    "replace": "%{ProFileName}"
+                }
+            ]
+        },
+        {
             "pattern": ".*",
-            "find": "\\\\",
-            "replace": "\\\\" 
+            "content": [
+                {
+                    "find": "\\\\",
+                    "replace": "\\\\"
+                }
+            ]
         }
     ]
 }
