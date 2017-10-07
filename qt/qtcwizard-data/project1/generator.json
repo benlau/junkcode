@@ -8,7 +8,8 @@
                     "find": "project1.pro",
                     "replace": "%{ProFileName}"
                 }
-            ]
+            ],
+            "openAsProject": true
         },
         {
             "pattern": ".*",

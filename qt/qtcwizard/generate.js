@@ -57,6 +57,10 @@ function run(input, output) {
                 return item;
             }
             
+            if (rule.openAsProject) {
+                item.openAsProject = rule.openAsProject
+            }
+            
             item.target = rule.path.reduce(function(acc, value) {
                 return acc.replace(new RegExp(value.find, "g"), value.replace);
             }, item.target);
@@ -80,9 +84,9 @@ function run(input, output) {
             source: item.source,
             target: item.target
         }
-
-        if (item.source.match(/pro$/)) {
-            res.openAsProject = true;
+        
+        if (item.openAsProject) {
+            res.openAsProject = true;  
         }
 
         return res;

@@ -10,6 +10,10 @@ module.exports = {
                     "replace": "\\" // Replace by "\\"
                 }
             ]
-        }
+        },
+        {
+            pattern: "\\.pro$",
+            openAsProject: true 
+        }        
     ]
 }
