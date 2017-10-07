@@ -1,6 +1,6 @@
 module.exports = {
     /// The files to be ignored
-    ignorePattern: ["\.swp$"],
+    ignorePattern: ["\\.swp$", "\\.DS_Store$"],
     pathReplace: [ 
         {
             find: "", 
@@ -10,8 +10,8 @@ module.exports = {
     fileReplace: [
         {
             "pattern": ".*", // Apply the changes to file matched
-            "find": "\\\\", // Pattern of text
-            "replace": "\\\\" // Replace the found text
+            "find": "\\", // Pattern of text
+            "replace": "\\" // Replace the found text
         }
     ]
 }

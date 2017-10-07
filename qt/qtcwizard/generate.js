@@ -14,6 +14,9 @@ function run(input, output) {
 
     rule = JSON.parse(shell.cat(ruleFile));
     
+    var defaultIgnorePattern = ["rule.json"];
+    rule.ignorePattern = rule.ignorePattern ? rule.ignorePattern.concat(defaultIgnorePattern) : defaultIgnorePattern
+    
     if (!shell.test("-f", input + "/wizard.json")) {
         console.log("wizard.json not found. Please run `qtcwizard init` to create default rule.json");
         return -1;        
@@ -21,7 +24,7 @@ function run(input, output) {
 
     var files = shell.find(input).filter(function(file) {
         var name = path.basename(file);
-        return !shell.test("-d", file) && name.toLocaleLowerCase !== "rule.json" && name.toLocaleLowerCase !== "wizard.jso";
+        return !shell.test("-d", file) && name.toLocaleLowerCase !== "rule.json" 
     });
 
     var generators = [];

@@ -4,7 +4,7 @@
     "id": "MT.......",
     "category": "F.Application",
     "trDescription": "",
-    "trDisplayName": "Default Project",
+    "trDisplayName": "Example Project",
     "trDisplayCategory": "Application",
     "icon": "",
     "enabled": "",
@@ -33,6 +33,10 @@
                 {
                     "source": ".gitignore",
                     "target": ".gitignore"
+                },
+                {
+                    "source": ".wizard.json.swp",
+                    "target": ".wizard.json.swp"
                 },
                 {
                     "source": "main.cpp",
