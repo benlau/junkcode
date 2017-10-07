@@ -1,0 +1,3 @@
+[submodule "qtcwizard-project/qtcwizard"]
+	path = qtcwizard-project/qtcwizard
+	url = git@github.com:e-fever/qtcwizard.git
