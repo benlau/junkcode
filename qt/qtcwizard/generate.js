@@ -1,30 +1,30 @@
 var fs = require('fs');
 var shell = require('shelljs');
 const path = require('path');
-var rule = require("./default-rule.js");
+var rule = require("./default-generator.js");
 
 function run(input, output) {
 
-    var ruleFile = input + "/rule.json";
+    var ruleFile = input + "/generator.json";
 
     if (!shell.test("-f", ruleFile ) ){
-        console.log("rule.json not found. Please run `qtcwizard init` to create default rule.json");
+        console.log("generator.json not found. Please run `qtcwizard init` to create default generator.json");
         return -1;
     }
 
     rule = JSON.parse(shell.cat(ruleFile));
     
-    var defaultIgnorePattern = ["rule.json"];
+    var defaultIgnorePattern = ["generator.json"];
     rule.ignoreFilePattern = rule.ignoreFilePattern ? rule.ignoreFilePattern.concat(defaultIgnorePattern) : defaultIgnorePattern
     
     if (!shell.test("-f", input + "/wizard.json")) {
-        console.log("wizard.json not found. Please run `qtcwizard init` to create default rule.json");
+        console.log("wizard.json not found. Please run `qtcwizard init` to create default generator.json");
         return -1;        
     }
 
     var files = shell.find(input).filter(function(file) {
         var name = path.basename(file);
-        return !shell.test("-d", file) && name.toLocaleLowerCase !== "rule.json" 
+        return !shell.test("-d", file) && name.toLocaleLowerCase !== "generator.json" 
     });
 
     var generators = [];

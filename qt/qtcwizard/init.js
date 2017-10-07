@@ -2,14 +2,14 @@ var fs = require('fs');
 var shell = require('shelljs');
 const path = require('path');
 var defaultWizardJson = require("./default-wizard.js");
-var defaultRule = require("./default-rule");
+var defaultGeneratorJson = require("./default-generator");
 
 function run(output) {
-    var ruleFilePath = path.resolve(output, "rule.json");
+    var generatorsFilePath = path.resolve(output, "generator.json");
 
-    if (!shell.test("-e", ruleFilePath)) {
-        shell.ShellString(JSON.stringify(defaultRule,null,4)).to(ruleFilePath);
-        console.log("rule.json created");
+    if (!shell.test("-e", generatorsFilePath)) {
+        shell.ShellString(JSON.stringify(defaultGeneratorJson,null,4)).to(generatorsFilePath);
+        console.log("generator.json created");
     }
     
     var wizardFilePath = path.resolve(output, "wizard.json");
