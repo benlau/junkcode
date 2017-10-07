@@ -1,17 +1,17 @@
 module.exports = {
     /// The files to be ignored
-    ignorePattern: ["\\.swp$", "\\.DS_Store$"],
-    pathReplace: [ 
+    ignoreFilePattern: ["\\.swp$", "\\.DS_Store$"],
+    filePath: [ 
         {
             find: "", 
             replace: ""
         }
     ],
-    fileReplace: [
+    fileContent: [
         {
             "pattern": ".*", // Apply the changes to file matched
-            "find": "\\", // Pattern of text
-            "replace": "\\" // Replace the found text
+            "find": "\\", // RegExp - Find every "\"
+            "replace": "\\" // Replace by 
         }
     ]
 }

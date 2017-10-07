@@ -15,7 +15,7 @@ function run(input, output) {
     rule = JSON.parse(shell.cat(ruleFile));
     
     var defaultIgnorePattern = ["rule.json"];
-    rule.ignorePattern = rule.ignorePattern ? rule.ignorePattern.concat(defaultIgnorePattern) : defaultIgnorePattern
+    rule.ignoreFilePattern = rule.ignoreFilePattern ? rule.ignoreFilePattern.concat(defaultIgnorePattern) : defaultIgnorePattern
     
     if (!shell.test("-f", input + "/wizard.json")) {
         console.log("wizard.json not found. Please run `qtcwizard init` to create default rule.json");
@@ -34,7 +34,7 @@ function run(input, output) {
 
         var source = file.replace(basePath, "");
 
-        return rule.ignorePattern.reduce(function(acc, value) {
+        return rule.ignoreFilePattern.reduce(function(acc, value) {
             var res = source.match(value);
             if (res) {
                 acc.include = false;
@@ -46,13 +46,13 @@ function run(input, output) {
 
         var source = file.replace(basePath, "");
 
-        var target = rule.pathReplace.reduce(function(acc, value) {
+        var target = rule.filePath.reduce(function(acc, value) {
             return acc.replace(new RegExp(value.find, "g"), value.replace);
         }, source);
 
         var content = shell.cat(file);
 
-        var newContent = rule.fileReplace.reduce(function(acc,value) {
+        var newContent = rule.fileContent.reduce(function(acc,value) {
             return acc.replace(new RegExp(value.find, "g"), value.replace);
         }, content);
 
