@@ -1,0 +1,27 @@
+{
+    "ignorePattern": [".*swp", "vendor","user$", ".DS_Store", "qmlc$","build-"],
+    "rules": [
+        {
+            "pattern" : ".*",
+            "path": [
+                {
+                    "find": "MYPROJECT",
+                    "replace": "%{ProjectName}"
+                }            
+            ]
+        },
+        {
+            "pattern": "\\.pro$",
+            "openAsProject": true
+        },
+        {
+            "pattern": ".*",
+            "content": [
+                {
+                    "find": "\\\\",
+                    "replace": "\\\\"
+                }
+            ]
+        }        
+    ]
+}
