@@ -1,5 +1,5 @@
 {
-    "ignorePattern": [".*swp", "vendor","user$", ".DS_Store", "qmlc$","build-"],
+    "ignoreFilePattern": [".*swp", "user$", ".DS_Store", "qmlc$", "build-" , "jsc$"],
     "rules": [
         {
             "pattern" : ".*",
@@ -8,10 +8,16 @@
                     "find": "MYPROJECT",
                     "replace": "%{ProjectName}"
                 }            
+            ],
+            "content": [
+                {
+                    "find": "MYPROJECT",
+                    "replace": "%{ProjectName}"
+                }
             ]
         },
         {
-            "pattern": "\\.pro$",
+            "pattern": "MYPROJECTunittests.pro$",
             "openAsProject": true
         },
         {

@@ -4,9 +4,8 @@
     "id": "LibraryProjectTravis",
     "category": "G.Library",
     "trDescription": "Creates a library project with Testable",
-    "trDisplayName": "Library Project with Testable unit test",
+    "trDisplayName": "QPM Library Project",
     "trDisplayCategory": "Other Project",
-    "icon": "../consoleapplication.png",
     "enabled": "%{JS: [ %{Plugins} ].indexOf('QmlProjectManager') >= 0}",
     "options": [
         {
