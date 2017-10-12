@@ -66,10 +66,6 @@
                 {
                     "source": "qtquickcontrols2.conf",
                     "target": "qtquickcontrols2.conf"
-                },
-                {
-                    "source": "wizard.json",
-                    "target": "wizard.json"
                 }
             ]
         }
