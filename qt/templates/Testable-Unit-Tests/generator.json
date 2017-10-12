@@ -1,0 +1,31 @@
+{
+    "ignoreFilePattern": [
+        "\\.swp$",
+        "\\.DS_Store$"
+    ],
+    "rules": [
+        {
+            "pattern": ".*",
+            "path": [
+                {
+                    "find": "PROJECT",
+                    "replace": "%{ProjectName}"
+                }
+            ],
+            "content": [
+                {
+                    "find": "\\\\",
+                    "replace": "\\\\"
+                },
+                {
+                    "find": "PROJECT",
+                    "replace": "%{ProjectName}"
+                }
+            ]
+        },
+        {
+            "pattern": "\\PROJECT.pro$",
+            "openAsProject": true
+        }
+    ]
+}
