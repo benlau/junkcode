@@ -1,7 +1,10 @@
 {
     "ignoreFilePattern": [
         "\\.swp$",
-        "\\.DS_Store$"
+        "\\.DS_Store$",
+	"\\.pro.user$",
+	"\\.qmlc$",
+	"\\.jsc$"
     ],
     "rules": [
         {
