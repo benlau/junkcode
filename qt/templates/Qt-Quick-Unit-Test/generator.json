@@ -1,7 +1,9 @@
 {
     "ignoreFilePattern": [
         "\\.swp$",
-        "\\.DS_Store$"
+        "\\.DS_Store$",
+	".pro.user$",
+	".qmlc$"
     ],
     "rules": [
         {
@@ -15,8 +17,8 @@
             ],
             "content": [
                 {
-                    "find": "\\",
-                    "replace": "\\"
+                    "find": "\\\\",
+                    "replace": "\\\\"
                 },
                 {
                     "find": "PROJECT",
