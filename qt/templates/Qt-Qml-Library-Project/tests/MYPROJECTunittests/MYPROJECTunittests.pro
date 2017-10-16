@@ -1,6 +1,6 @@
 QT       += testlib qml
 
-TARGET = MYPROJECT
+TARGET = MYPROJECTunittests
 CONFIG   += console
 CONFIG   -= app_bundle
 
