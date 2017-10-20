@@ -9,7 +9,7 @@ TEMPLATE = app
 SOURCES +=     main.cpp     tests.cpp
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
-DEFINES += QUICK_TEST_SOURCE_DIR=\\\"$$PWD/\\\"
+DEFINES += QUICK_TEST_SOURCE_DIR=\\\"$$PWD/qmltests\\\"
 
 ROOTDIR = $$PWD/../../
 
