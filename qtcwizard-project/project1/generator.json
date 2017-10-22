@@ -1,4 +1,5 @@
 {
+    "icon": "icon.png",
     "ignoreFilePattern": ["\\.swp$", "\\.DS_Store$"],
     "rules": [
         {

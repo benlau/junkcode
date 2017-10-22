@@ -7,6 +7,7 @@ Project {
             name: "all"
             files: "**"
             qbs.install: true
+            qbs.installSourceBase: "."
             qbs.installRoot: "/tmp/qbs"
         }
     }
