@@ -1,0 +1,11 @@
+{
+  "name": "",
+  "description": "",
+  "dependencies": [
+    "com.github.benlau.quickflux@1.1.1",
+    "com.github.benlau.quickpromise@1.0.5"
+  ],
+  "license": "NONE",
+  "pri_filename": "",
+  "webpage": ""
+}

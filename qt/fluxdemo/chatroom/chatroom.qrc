@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ChatRoom/stores/MainStore.qml</file>
+        <file>ChatRoom/stores/qmldir</file>
+        <file>ChatRoom/actions/AppActions.qml</file>
+        <file>ChatRoom/actions/ActionTypes.qml</file>
+        <file>ChatRoom/actions/qmldir</file>
+        <file>ChatRoom/constants/Constants.qml</file>
+        <file>ChatRoom/constants/qmldir</file>
+        <file>ChatRoom/middlewares/qmldir</file>
+        <file>ChatRoom/middlewares/SystemMiddleware.qml</file>
+        <file>ChatRoom/stores/RootStore.qml</file>
+        <file>ChatRoom/middlewares/NetworkSimulationMiddleware.qml</file>
+        <file>ChatRoom/stores/PagingListModel.qml</file>
+    </qresource>
+</RCC>
