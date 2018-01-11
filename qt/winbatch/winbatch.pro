@@ -28,6 +28,6 @@ content = "set QT_DIR_BIN=$${QT_INSTALL_BINS}" \
           "set VCINSTALLDIR=$${VCINSTALLDIR}" \
           "set PATH=%QT_DIR_BIN%;%VCINSTALLDIR%;%PATH%"
 
-write_file(qt.batch, content)
+write_file(qt.bat, content)
 
 message($$content)
