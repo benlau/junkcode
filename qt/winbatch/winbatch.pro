@@ -1,4 +1,5 @@
-QT += concurrent
+QT -= gui
+
 CONFIG += c++11 console
 CONFIG -= app_bundle
 
@@ -14,4 +15,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += main.cpp
-#include(vendor/vendor.pri)
+
+DISTFILES += \
+    README.md
+
+QT_INSTALL_BINS = $$[QT_INSTALL_BINS]
+QT_INSTALL_BINS = $$replace(QT_INSTALL_BINS,/,\\)
+VCINSTALLDIR=$(VCINSTALLDIR)
+VCINSTALLDIR=$$replace(VCINSTALLDIR,/,\\)
+
+content = "set QT_DIR_BIN=$${QT_INSTALL_BINS}" \
+          "set VCINSTALLDIR=$${VCINSTALLDIR}" \
+          "set PATH=%QT_DIR_BIN%;%VCINSTALLDIR%;%PATH%"
+
+write_file(qt.batch, content)
+
+message($$content)

@@ -17,12 +17,22 @@ void upload(const QImage &image) {
 
 }
 
-void func2() {
-    QFuture<void> future;
+//void case2() {
+//    QFuture<void> future;
 
-    AsyncFuture::observe(future).subscribe([](int value) {
-    });
-}
+//    AsyncFuture::observe(future).subscribe([](int value) {
+//    });
+//}
+
+//void case3() {
+
+//    auto defer = AsyncFuture::deferred<void>();
+
+//    auto worker = [=]() {
+//        defer.complete();
+//    };
+
+//}
 
 int main(int argc, char *argv[])
 {
@@ -30,10 +40,9 @@ int main(int argc, char *argv[])
 
     QFuture<QImage> future = readImage(SOURCE);
 
-//    AsyncFuture::observe(future).subscribe([](int value) {
-//    });
-
-
+    AsyncFuture::observe(future).subscribe([](int value) {
+        // processing...
+    });
 
 
     return a.exec();
