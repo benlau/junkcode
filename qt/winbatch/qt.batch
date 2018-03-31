@@ -1,0 +1,3 @@
+set QT_DIR_BIN=\Users\benlau\Development\Qt-Full\5.8\clang_64\bin
+set VCINSTALLDIR=$(VCINSTALLDIR)
+set PATH=%QT_DIR_BIN%;%VCINSTALLDIR%;%PATH%
