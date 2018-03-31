@@ -20,7 +20,7 @@ class QuickpromiseConan(ConanFile):
         #tools.replace_in_file("hello/CMakeLists.txt", "PROJECT(MyHello)", '''PROJECT(MyHello)
 
     def build(self):
-        self.run("qmake %s/quickpromise/quickpromise.pro" % self.source_folder);
+        self.run("qmake %s/quickpromise/quickpromise.pro" % self.source_folder)
         self.run("make");
 
         # Explicit way:
@@ -36,4 +36,4 @@ class QuickpromiseConan(ConanFile):
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.libs = ["hello"]
+        self.cpp_info.libs = ["quickpromise"]

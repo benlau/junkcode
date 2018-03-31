@@ -3,13 +3,13 @@ import os
 
 class QuickpromiseTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    generators = "cmake"
+    generators = "qmake"
 
     def build(self):
-        cmake = CMake(self)
-        # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is in "test_package"
-        cmake.configure()
-        cmake.build()
+        print os.getcwd()
+        print self.source_folder
+        self.run("qmake %s/example.pro" % self.source_folder )
+        self.run("make")
 
     def imports(self):
         self.copy("*.dll", dst="bin", src="bin")
@@ -17,6 +17,5 @@ class QuickpromiseTestConan(ConanFile):
         self.copy('*.so*', dst='bin', src='lib')
 
     def test(self):
-        if not tools.cross_building(self.settings):
-            os.chdir("bin")
-            self.run(".%sexample" % os.sep)
+        print os.getcwd()
+        self.run(".%sexample" % os.sep)
