@@ -40,3 +40,5 @@ commands.md
 
 node_modules
 qt/templates/*.sh
+*.jsc
+*.swp

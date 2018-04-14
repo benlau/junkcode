@@ -1,0 +1,7 @@
+[requires]
+QmakeExtra/0.1@demo/testing
+
+[generators]
+qmake
+qmake_extra
+
