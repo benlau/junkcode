@@ -1,5 +1,6 @@
 [requires]
 QmakeExtra/0.1@demo/testing
+QuickPromise/1.0.8@demo/testing
 
 [generators]
 qmake
