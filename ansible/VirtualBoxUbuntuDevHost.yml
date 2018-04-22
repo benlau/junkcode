@@ -1,0 +1,25 @@
+
+---
+- hosts: localhost
+  tasks:
+    - name: Install software
+      become: yes
+      become_user: root
+      apt:  name={{item}} state=installed 
+      with_items:
+        - geany
+        - vim-gtk3
+        - mesa-common-dev
+        - qbs
+        - git
+        - libvte-dev
+    - name: Config git
+      shell: |
+         git config --global user.name "Ben Lau"
+         git config --global user.email "xbenlau@gmail.com"
+    - name: Group
+      user:
+         name: benlau
+         groups: vboxsf
+         append: yes
+    
