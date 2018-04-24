@@ -14,6 +14,7 @@
         - git
         - libvte-dev
         - build-essential
+        - libgl1-mesa-dev
     - name: Config git
       shell: |
          git config --global user.name "Ben Lau"
@@ -23,8 +24,13 @@
         name: benlau
         groups: vboxsf
         append: yes
-    - name: Config
+    - name: Gnome
       dconf:
         key: "/org/gnome/desktop/lockdown/disable-lock-screen"
         value: "true"         
         state: present
+    - name: Qt Online installer
+      get_url:
+        url: https://download.qt.io/archive/online_installers/3.0/qt-unified-linux-x64-3.0.4-online.run
+        dest: /home/benlau/Downloads
+        mode: u+rwx
