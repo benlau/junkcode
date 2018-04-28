@@ -1,0 +1,5 @@
+{
+  "dependencies": [
+    "com.github.benlau.quickpromise@1.0.7"
+  ]
+}

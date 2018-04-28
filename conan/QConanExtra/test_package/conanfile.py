@@ -3,7 +3,7 @@ import os
 
 class TestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    generators = ["qmake", "qmake_extra"]
+    generators = ["qmake", "qconanextra_qmake", "qconanextra_header"]
     requires = "QuickPromise/1.0.8@demo/testing"
 
     def build(self):

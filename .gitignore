@@ -42,3 +42,9 @@ node_modules
 qt/templates/*.sh
 *.jsc
 *.swp
+
+conanbuildinfo.pri
+conanbuildinfo.txt
+qconanextra.h
+qconanextra.pri
+build

@@ -4,5 +4,7 @@ QuickPromise/1.0.8@demo/testing
 
 [generators]
 qmake
-qmake_extra
+qconanextra_qmake
+qconanextra_header
+
 
