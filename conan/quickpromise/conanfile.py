@@ -6,7 +6,7 @@ class QuickpromiseConan(ConanFile):
     version = "1.0.8"
     license = "Apache 2.0"
     url = "https://github.com/benlau/quickpromise"
-    description = "<Description of Quickpromise here>"
+    description = "Promise for QML/JS"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
