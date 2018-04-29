@@ -2,7 +2,7 @@ from conans import ConanFile, tools
 import os
 
 class QuickpromiseConan(ConanFile):
-    name = "QuickPromise"
+    name = "quickpromise"
     version = "1.0.8"
     license = "Apache 2.0"
     url = "https://github.com/benlau/quickpromise"
@@ -15,14 +15,23 @@ class QuickpromiseConan(ConanFile):
 
     def source(self):
         self.run("git clone https://github.com/benlau/quickpromise.git")
-        self.run("cd quickpromise && git checkout -b staticlib origin/staticlib")
+        self.run("cd quickpromise")
 
     def build(self):
-        self.run("qmake %s/quickpromise/quickpromise.pro" % self.source_folder)
+        args = []
+        if self.options.shared:
+            args.append("CONFIG+=no_staticlib");
+            
+        qmake = "qmake %s/quickpromise/lib/lib.pro %s" % (self.source_folder, " ".join(args));
+        
+        print(args, qmake, self.options.shared)
+        self.run(qmake)
         self.run("make")
 
     def package(self):
         self.copy("*.a", dst="lib", keep_path=False)
+        self.copy("*.dylib", dst="lib", keep_path=False)
+        self.copy("*.dll", dst="lib", keep_path=False)
         self.copy("*", src="quickpromise/qml/QuickPromise", dst="qml/QuickPromise", keep_path=True)
         export_path = os.path.dirname(os.path.realpath(__file__))
         self.copy("qconanextra.json", src=export_path)

@@ -1,10 +1,12 @@
 [requires]
 qconanextra/0.1@demo/testing
-QuickPromise/1.0.8@demo/testing
+quickpromise/1.0.8@demo/testing
 
 [generators]
 qmake
 qconanextra_qmake
 qconanextra_header
 
+[options]
+quickpromise:shared=True
 
