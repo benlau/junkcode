@@ -22,9 +22,7 @@ class QuickpromiseConan(ConanFile):
         if self.options.shared:
             args.append("CONFIG+=no_staticlib");
             
-        qmake = "qmake %s/quickpromise/lib/lib.pro %s" % (self.source_folder, " ".join(args));
-        
-        print(args, qmake, self.options.shared)
+        qmake = "qmake %s/quickpromise/lib/lib.pro %s" % (self.source_folder, " ".join(args));    
         self.run(qmake)
         self.run("make")
 

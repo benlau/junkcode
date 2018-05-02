@@ -15,4 +15,8 @@ DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000
 
 CONFIG += conan_basic_setup
 include(conanbuildinfo.pri)
+include(qconanextra.pri)
+
+DISTFILES += \
+    tst_loading.qml
 
