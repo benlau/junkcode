@@ -18,5 +18,9 @@ include(conanbuildinfo.pri)
 include(qconanextra.pri)
 
 DISTFILES += \
-    tst_loading.qml
+    tst_loading.qml \
+    conanfile.txt
+
+HEADERS += \
+    qconanextra.h
 

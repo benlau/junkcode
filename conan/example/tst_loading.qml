@@ -39,7 +39,7 @@ TestCase {
     }
 
     Promise {
-        id : promise
+        id: promise
     }
 
     function test_instanceOfSignal() {

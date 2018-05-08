@@ -9,4 +9,7 @@ qconanextra_header
 
 [options]
 quickpromise:shared=True
+#quickpromise:shared=False
 
+[imports]
+qml, QuickPromise/* -> ./qml
