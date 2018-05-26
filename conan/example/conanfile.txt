@@ -2,11 +2,13 @@
 qconanextra/0.1@demo/testing
 quickpromise/1.0.8@demo/testing
 quickfuture/1.0.6@demo/testing
+ini_to_env/0.0.1@demo/testing
 
 [generators]
 qmake
 qconanextra_qmake
 qconanextra_header
+virtualenv
 
 [options]
 #quickpromise:shared=True
