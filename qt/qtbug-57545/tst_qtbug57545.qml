@@ -2,7 +2,7 @@ import QtQuick 2.3
 import QtTest 1.0
 
 TestCase {
-    name: "Array"
+    name: "QTBUG-57545"
 
     function test_condition1() {
          var array = [2,3,1];

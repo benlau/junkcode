@@ -4,16 +4,19 @@ import platform
 import subprocess
 
 class QtHelper:
+    @staticmethod
     def package_id(conanFile):
         version_info = subprocess.check_output(['qmake', '--version'])
         conanFile.info.settings.compiler.qmake_version = version_info
 
+    @staticmethod
     def make(conanFile, args=[]):
         if platform.system() == "Windows":
             conanFile.run("nmake %s" % " ".join(args))
         else:
             conanFile.run("make %s" % " ".join(args))
 
+    @staticmethod
     def qmake(conanFile, args=[]):
         cmd = "qmake %s" % (" ".join(args))
         conanFile.run(cmd)
