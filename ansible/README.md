@@ -1,6 +1,6 @@
 Prerequisite
 ============
 
-sudo apt-get install ansible python-psutil
+sudo apt-get install -y ansible python-psutil
 
 ansible-playbook VirtualBoxUbuntuDevHost.yml
