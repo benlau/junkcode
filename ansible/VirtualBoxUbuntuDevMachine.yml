@@ -14,23 +14,32 @@
         - git
         - libvte-dev
         - build-essential
-        - libgl1-mesa-dev
+        - dkms
     - name: Config git
       shell: |
          git config --global user.name "Ben Lau"
          git config --global user.email "xbenlau@gmail.com"
-    - name: User Group
-      user:
-        name: benlau
-        groups: vboxsf
-        append: yes
-    - name: Gnome
-      dconf:
-        key: "/org/gnome/desktop/lockdown/disable-lock-screen"
-        value: "true"         
-        state: present
     - name: Qt Online installer
       get_url:
         url: https://download.qt.io/archive/online_installers/3.0/qt-unified-linux-x64-3.0.4-online.run
         dest: /home/benlau/Downloads
         mode: u+rwx
+    - name: Ansible PPA
+      become: yes
+      become_user: root
+      apt_repository:
+        repo: ppa:ansible/ansible
+        state: present
+    - name: vboxsf group checking
+      shell: "grep -q vboxsf /etc/group"
+      register: vboxsf_exists
+      ignore_errors: true
+    - debug:  msg="vboxsf_exists {{vboxsf_exists.rc}}"
+    - name: Append vboxsf group
+      become: yes
+      become_user: root
+      user:
+        name: benlau
+        groups: vboxsf
+        append: yes
+      when: vboxsf_exists.rc == 0
