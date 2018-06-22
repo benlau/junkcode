@@ -14,6 +14,7 @@
         - git
         - libvte-dev
         - build-essential
+        - dkms
     - name: Config git
       shell: |
          git config --global user.name "Ben Lau"
@@ -29,4 +30,16 @@
       apt_repository:
         repo: ppa:ansible/ansible
         state: present
-        
+    - name: vboxsf group checking
+      shell: "grep -q vboxsf /etc/group"
+      register: vboxsf_exists
+      ignore_errors: true
+    - debug:  msg="vboxsf_exists {{vboxsf_exists.rc}}"
+    - name: vboxsf group
+      become: yes
+      become_user: root
+      user:
+        name: benlau
+        groups: vboxsf
+      append: yes
+      when: vboxsf_exists.rc == 0
