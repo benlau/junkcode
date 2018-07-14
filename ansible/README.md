@@ -5,11 +5,8 @@ Prerequisite
 sudo apt-get install -y ansible python-psutil
 
 # Don't run by root
-ansible-playbook VirtualBoxUbuntuDevMachine.yml
+ansible-playbook UbunutDevMachine-1804.yml
 
-# After installed guest addition
-
-ansible-playbook VirtualBoxUbuntuDevMachine.yml
 ```
 
 

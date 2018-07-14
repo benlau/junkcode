@@ -1,0 +1,67 @@
+# For Ubuntu 1804
+# TODO - Qt Installer - Check SHA Sum
+---
+- hosts: localhost
+  tasks:
+    - name: Install Ubuntu Packages
+      become: yes
+      become_user: root
+      apt:  name={{item}} state=installed 
+      with_items:
+        - geany
+        - vim-gtk3
+        - mesa-common-dev
+        - qbs
+        - git
+        - libvte-dev
+        - build-essential
+        - dkms
+        - docker-compose
+        - golang
+    - name: Config git
+      shell: |
+         git config --global user.name "Ben Lau"
+         git config --global user.email "xbenlau@gmail.com"
+    - name: Qt Online installer
+      get_url:
+        url: https://download.qt.io/archive/online_installers/3.0/qt-unified-linux-x64-3.0.4-online.run
+        dest: /home/benlau/Downloads
+        mode: u+rwx
+    - name: vboxsf group checking
+      shell: "grep -q vboxsf /etc/group"
+      register: vboxsf_exists
+      ignore_errors: true
+    - debug:  msg="vboxsf_exists {{vboxsf_exists.rc}}"
+    - name: Append vboxsf group
+      become: yes
+      become_user: root
+      user:
+        name: benlau
+        groups: vboxsf
+        append: yes
+      when: vboxsf_exists.rc == 0
+    - name: docker group checking
+      shell: "grep -q docker /etc/group"
+      register: docker_group_exists
+      ignore_errors: true
+    - debug:  msg="docker_group_exists {{docker_group_exists.rc}}"
+    - name: Append docker group
+      become: yes
+      become_user: root
+      user:
+        name: benlau
+        groups: docker
+        append: yes
+      when: docker_group_exists.rc == 0
+    - name: Check is qpm installed
+      shell: command -v qpm > /dev/null 2>&1
+      register: is_qpm_exist
+      ignore_errors: true
+    - name: qpm
+      become: yes
+      become_user: root
+      environment:
+        GOPATH: /usr/local
+      shell: "go get qpm.io/qpm"
+      when: is_qpm_exist.rc != 0
+
