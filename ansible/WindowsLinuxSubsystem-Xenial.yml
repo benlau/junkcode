@@ -11,6 +11,8 @@
         - git
         - build-essential
         - golang
+        - nodejs
+        - npm
     - name: Config git
       shell: |
          git config --global user.name "Ben Lau"
@@ -26,4 +28,10 @@
         GOPATH: /usr/local
       shell: "go get qpm.io/qpm"
       when: is_qpm_exist.rc != 0
+    - name: wsl-open
+      become: yes
+      become_user: root
+      npm: 
+        name: wsl-open
+        global: yes
 
