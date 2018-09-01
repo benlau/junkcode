@@ -23,13 +23,11 @@ Rectangle {
     }
 
     function refresh() {
-
         line.height = lineWidth;
         line.width = _length(p1,p2);
         line.x = p1.x;
         line.y = p1.y - lineWidth / 2; // Transform Origin at Left
-
-        rotation = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI
+        line.rotation = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI
     }
 
     Component.onCompleted: {

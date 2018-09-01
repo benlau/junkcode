@@ -1,0 +1,29 @@
+
+---
+- hosts: localhost
+  tasks:
+    - name: Install Ubuntu Packages
+      become: yes
+      become_user: root
+      apt:  name={{item}} state=installed 
+      with_items:
+        - qbs
+        - git
+        - build-essential
+        - golang
+    - name: Config git
+      shell: |
+         git config --global user.name "Ben Lau"
+         git config --global user.email "xbenlau@gmail.com"
+    - name: Check is qpm installed
+      shell: command -v qpm > /dev/null 2>&1
+      register: is_qpm_exist
+      ignore_errors: true
+    - name: qpm
+      become: yes
+      become_user: root
+      environment:
+        GOPATH: /usr/local
+      shell: "go get qpm.io/qpm"
+      when: is_qpm_exist.rc != 0
+
