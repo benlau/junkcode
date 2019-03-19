@@ -3,6 +3,12 @@
 ---
 - hosts: localhost
   tasks:
+    - name: Disbale beep sound in .inputrc
+      blockinfile:
+        dest: ~/.inputrc
+        create: yes
+        block: |
+          set bell-style none  
     - name: Install Ubuntu Packages
       become: yes
       become_user: root
