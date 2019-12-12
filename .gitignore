@@ -48,3 +48,4 @@ conanbuildinfo.txt
 qconanextra.h
 qconanextra.pri
 build
+*.user
