@@ -1,0 +1,25 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Cache emsdk
+      uses: actions/cache@v3
+      with:
+        path: emsdk
+        key: emsdk
+    - name: Install emsdk
+      run: |
+        find emsdk
+        if [ ! -d "emsdk" ]; then
+          git clone https://github.com/emscripten-core/emsdk.git
+          cd emsdk
+          ./emsdk activate latest
+          ./emsdk install latest
+        fi
+        
+
