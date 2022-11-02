@@ -14,12 +14,10 @@ jobs:
         key: emsdk
     - name: Install emsdk
       run: |
-        find emsdk
         if [ ! -d "emsdk" ]; then
           git clone https://github.com/emscripten-core/emsdk.git
           cd emsdk
           ./emsdk activate latest
           ./emsdk install latest
         fi
-        
-
+        find emsdk        
