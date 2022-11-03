@@ -40,3 +40,12 @@ jobs:
           cd onnxruntime
           VERBOSE=1 ./build.sh --config Release --build_wasm_static_lib --skip_tests --disable_wasm_exception_catching --disable_rtti --enable_wasm_simd
         fi
+    - name: Install onnxruntime
+      run |
+        source emsdk/emsdk_env.sh
+        cd onnxruntime/build/Linux/Release
+        CMAKE_INSTALL_PREFIX=~/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto
+        REPLACE=${CMAKE_INSTALL_PREFIX//\//\\/}
+        sed -i -e "s/CMAKE_INSTALL_PREFIX:PATH=.*/CMAKE_INSTALL_PREFIX:PATH=${REPLACE}/g" CMakeCache.txt
+        make install
+        find ${CMAKE_INSTALL_PREFIX}
