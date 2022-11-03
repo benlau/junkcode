@@ -16,6 +16,7 @@ jobs:
         path: emsdk
         key: emsdk
     - name: Cache onnxruntime
+      uses: actions/cache@v3
       with:
         path: onnxruntime
         key: onnxruntime
