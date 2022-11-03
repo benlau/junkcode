@@ -35,7 +35,7 @@ jobs:
     - name: Build onnxruntime
       run: |
         source emsdk/emsdk_env.sh
-        if [ ! -d "onnxruntime"]; then
+        if [ ! -d "onnxruntime" ]; then
           git clone --depth 1 --branch v1.12.1 https://github.com/microsoft/onnxruntime.git
           cd onnxruntime
           VERBOSE=1 ./build.sh --config Release --build_wasm_static_lib --skip_tests --disable_wasm_exception_catching --disable_rtti --enable_wasm_simd
