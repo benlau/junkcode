@@ -39,15 +39,3 @@ jobs:
           cd onnxruntime
           VERBOSE=1 ./build.sh --config Release --build_wasm_static_lib --skip_tests --disable_wasm_exception_catching --disable_rtti --enable_wasm_simd
         fi
-        # emcc --version
-        # set -e
-        # if pkg-config --exists onnxruntime; then
-        #   echo "onnxruntime already installed"
-        #   exit 0
-        # fi
-        # set +e
-        # cd build/Linux/Release
-        # make install
-        # find ~/emsdk/upstream/emscripten/cache
-        # cp libonnxruntime_webassembly.a ~/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto
-
