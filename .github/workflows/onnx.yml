@@ -50,4 +50,4 @@ jobs:
         make install
         cp libonnxruntime_webassembly.a ~/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto
         find ${CMAKE_INSTALL_PREFIX} -name "*.a"
-        cat ~/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/lib/pkgconfig/libonnxruntime.pc
+        cat ~/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/lib/pkgconfig/libonnxruntime.pc
