@@ -48,4 +48,5 @@ jobs:
         REPLACE=${CMAKE_INSTALL_PREFIX//\//\\/}
         sed -i -e "s/CMAKE_INSTALL_PREFIX:PATH=.*/CMAKE_INSTALL_PREFIX:PATH=${REPLACE}/g" CMakeCache.txt
         make install
-        find ${CMAKE_INSTALL_PREFIX}
+        cp libonnxruntime_webassembly.a ~/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto
+        find ${CMAKE_INSTALL_PREFIX} -name "*.a"
