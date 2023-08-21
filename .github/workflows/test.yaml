@@ -1,0 +1,34 @@
+name: CI
+
+on: [push]
+
+env:
+  REF: ${{ github.ref }}
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo
+        run: |
+          echo ${MY_BRANCH}
+          echo ${vars.MY_BRANCH}
+          echo ${REF}
+  test1:
+    runs-on: ubuntu-latest
+    if: |
+      ${{ ((github.ref == 'refs/heads/github-action' && vars.MY_BRANCH == 'test1')}}
+    steps:
+    - name: Echo
+      run: |
+        echo ${MY_BRANCH}
+        echo ${vars.MY_BRANCH}
+  test2:
+    runs-on: ubuntu-latest
+    if: |
+      ${{ ((github.ref == 'refs/heads/github-action' && vars.MY_BRANCH == 'test2')}}
+    steps:
+    - name: Echo
+      run: \
+        echo ${MY_BRANCH}
+        echo ${vars.MY_BRANCH}
