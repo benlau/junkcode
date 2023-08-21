@@ -33,8 +33,7 @@ jobs:
           echo ${REF}
   test3:
     runs-on: ubuntu-latest
-    if: |
-      ${{ (github.ref == 'refs/heads/master' && vars.MY_BRANCH == 'test2')}}
+    if:  ${{(github.ref == 'refs/heads/master')}}
     steps:
       - name: Echo
         run: |
