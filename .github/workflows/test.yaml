@@ -4,6 +4,7 @@ on: [push]
 
 env:
   REF: ${{ github.ref }}
+  MY_BRANCH: ${{ vars.MY_BRANCH }}
 
 jobs:
   debug:
@@ -18,26 +19,26 @@ jobs:
     if: |
       ${{ (github.ref == 'refs/heads/github-action' && vars.MY_BRANCH == 'test1')}}
     steps:
-    - name: Echo
-      run: |
-        echo ${MY_BRANCH}
-        echo ${REF}
+      - name: Echo
+        run: |
+          echo ${MY_BRANCH}
+          echo ${REF}
   test2:
     runs-on: ubuntu-latest
     if: |
       ${{ (github.ref == 'refs/heads/ub-action' && vars.MY_BRANCH == 'test2')}}
     steps:
-    - name: Echo
-      run: \
-        echo ${MY_BRANCH}
-        echo ${REF}
+      - name: Echo
+        run: |
+          echo ${MY_BRANCH}
+          echo ${REF}
   test3:
     runs-on: ubuntu-latest
     if: |
       ${{ (github.ref == 'refs/heads/master' && vars.MY_BRANCH == 'test2')}}
     steps:
-    - name: Echo
-      run: \
-        echo ${MY_BRANCH}
+      - name: Echo
+        run: |
+          echo ${MY_BRANCH}
           echo ${REF}
-      
+        
