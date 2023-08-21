@@ -26,7 +26,7 @@ jobs:
   test2:
     runs-on: ubuntu-latest
     if: |
-      ${{ (github.ref == 'refs/heads/ub-action' && vars.MY_BRANCH == 'test2')}}
+      ${{github.ref}} == 'refs/heads/github-action' && ${{vars.MY_BRANCH}} == 'test2'
     steps:
       - name: Echo
         run: |
