@@ -49,7 +49,8 @@ jobs:
           echo ${REF}
   test5:
     runs-on: ubuntu-latest
-    if:  ${{(github.ref == 'refs/heads/github-action' && vars.MY_BRANCH == 'test5')}}
+    if: |
+      ${{(github.ref == 'refs/heads/github-action' && vars.MY_BRANCH == 'test5')}}
     steps:
       - name: Echo
         run: |
