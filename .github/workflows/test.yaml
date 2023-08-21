@@ -39,4 +39,12 @@ jobs:
         run: |
           echo ${MY_BRANCH}
           echo ${REF}
+  test4:
+    runs-on: ubuntu-latest
+    if:  ${{(vars.MY_BRANCH == 'test4')}}
+    steps:
+      - name: Echo
+        run: |
+          echo ${MY_BRANCH}
+          echo ${REF}
         
