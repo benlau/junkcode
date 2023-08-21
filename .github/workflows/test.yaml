@@ -50,7 +50,8 @@ jobs:
   test5:
     runs-on: ubuntu-latest
     if: |
-      ${{(github.ref == 'refs/heads/github-action' && vars.MY_BRANCH == 'test5')}}
+      github.ref == 'refs/heads/github-action' && 
+        vars.MY_BRANCH == 'test5'
     steps:
       - name: Echo
         run: |
