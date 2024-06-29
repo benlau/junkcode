@@ -20,3 +20,6 @@ run_provisioning_script  /tmp/provision.sh ${DEFAULT_PROVISIONING_SCRIPT}
 apt-get update && \
     apt-get install -y -qq aria2 && \
     apt-get clean
+
+micromamba run -n comfyui pip install spandrel
+micromamba run -n comfyui pip install matplotlib
