@@ -12,5 +12,6 @@ Collection of example code / experimental project and my digital garden
 # VSCode Plugin for second brain
 - [foambubble/foam: A personal knowledge management and sharing system for VSCode](https://github.com/foambubble/foam)
 
-# Others
-- [Unlimited Build Works](https://benlau.github.io/)
+# About Ben Lau
+
+- [About Ben Lau | Unlimited Build Works](https://benlau.github.io/about/)

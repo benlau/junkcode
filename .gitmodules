@@ -1,6 +1,0 @@
-[submodule "qtcwizard-project/qtcwizard"]
-	path = qtcwizard-project/qtcwizard
-	url = git@github.com:e-fever/qtcwizard.git
-[submodule "qtcwizard-project/e-fever-codebase"]
-	path = qtcwizard-project/e-fever-codebase
-	url = git@github.com:e-fever/e-fever-codebase.git
