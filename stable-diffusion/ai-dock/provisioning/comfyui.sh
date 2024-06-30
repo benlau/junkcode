@@ -15,10 +15,12 @@ function run_provisioning_script() {
     fi
 }
 
+function run_workspace_provisioning_script() {
+    for script in `find /workspace -name provisioning.sh`
+    do 
+        ${script}    
+    done
+}
+
 run_provisioning_script  /tmp/provision.sh ${DEFAULT_PROVISIONING_SCRIPT}
-
-apt-get update && \
-    apt-get install -y -qq aria2 && \
-    apt-get clean
-
-micromamba run -n comfyui pip install spandrel matplotlib omegaconf
+run_workspace_provisioning_script
