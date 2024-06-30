@@ -21,5 +21,4 @@ apt-get update && \
     apt-get install -y -qq aria2 && \
     apt-get clean
 
-micromamba run -n comfyui pip install spandrel
-micromamba run -n comfyui pip install matplotlib
+micromamba run -n comfyui pip install spandrel matplotlib omegaconf
