@@ -18,9 +18,13 @@ function run_provisioning_script() {
 function run_workspace_provisioning_script() {
     for script in `find /workspace -name provisioning.sh`
     do 
+        echo ubw: run ${script}
         ${script}    
     done
 }
 
+echo ubw: provisioning script started
 run_provisioning_script  /tmp/provision.sh ${DEFAULT_PROVISIONING_SCRIPT}
+
+
 run_workspace_provisioning_script
